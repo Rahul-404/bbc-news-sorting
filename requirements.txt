@@ -1,0 +1,8 @@
+numpy
+pandas
+imblearn
+seaborn
+xgboost
+nltk
+wordcloud
+plotly

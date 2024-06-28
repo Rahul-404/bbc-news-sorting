@@ -129,6 +129,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+bbc-news-sorting/
 
 # Spyder project settings
 .spyderproject
