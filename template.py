@@ -23,8 +23,8 @@ list_of_file = [
     "app.py",
     "Dockerfile",
     "requirements.txt",
-    "setup.py"
-    "artifacts/"
+    "setup.py",
+    f"artifacts"
 
 ]
 

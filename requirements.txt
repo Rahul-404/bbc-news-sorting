@@ -2,7 +2,9 @@ numpy
 pandas
 imblearn
 seaborn
+lightgbm
 xgboost
 nltk
 wordcloud
 plotly
+. -e
