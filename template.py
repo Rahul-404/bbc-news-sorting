@@ -4,7 +4,7 @@ import logging
 
 logging.basicConfig(level=logging.INFO)
 
-project_name = "bbc-news-sorting"
+project_name = "news_sorting_project"
 
 list_of_file = [
     f"src/{project_name}/__init__.py",
