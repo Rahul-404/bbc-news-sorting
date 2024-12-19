@@ -6,4 +6,13 @@ xgboost
 nltk
 wordcloud
 plotly
+ipykernel
+nbformat>=4.2.0
+transformers
+torch
+tensorflow==2.13
+tensorflow-metal
+expecttest
+streamlit
+mlflow
 -e .
