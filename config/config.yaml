@@ -1,0 +1,24 @@
+artifacts_root: artifacts
+
+
+data_ingestion:
+  root_dir: artifacts/data_ingestion                                                 # save final results
+  source_URL: https://bbc-news-data.s3.ap-south-1.amazonaws.com/learn-ai-bbc.zip     # source link to download data
+  local_data_file: artifacts/data_ingestion/data.zip                                 # file path to save downloaded data
+  unzip_dir: artifacts/data_ingestion                                                # save extracted data
+
+data_cleaning:
+  root_dir: artifacts/data_cleaning                                                  # director to save clean data
+  raw_data_file: artifacts/data_ingestion/BBC News Train.csv                         # directory to get raw data
+  clean_data_file: artifacts/data_cleaning/clean_data.csv                            # directory to clean data
+  preprocessing_obj: artifacts/data_cleaning/preprocessor.pkl                        # directory to preprocessing object
+
+data_transformation:
+  root_dir: artifacts/data_transformation                                            # save final results
+  embedding_path: artifacts/data_transformation/embedding_data.npy                   # save embeddings
+  target_path: artifacts/data_transformation/target_data.npy                         # save target file
+  encoder_path: artifacts/data_transformation/encoder.pkl                            # save label encoder
+
+training:
+  root_dir: artifacts/training                                                       # save final results
+  trained_model_path: artifacts/training/model.pkl                                   # model path to save
