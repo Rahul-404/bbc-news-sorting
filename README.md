@@ -64,6 +64,21 @@ The BBC News Dataset consists of news articles published by the BBC, categorized
 
 ### Train, Test and Validation Split:
 
+![Train-Test_Validation-Split](/notebooks/plots/data_split_output.png)
+
+splitting data based on `Category` and the distribution of tokens per example across the category to avoid bias of token length and distribution of words.
+
+![Dictionary-words-vs-OOV-words](/notebooks/plots/dictionary_words_vs_oov_words_output.png)
+
+around 10K words are there in train data and, from those only ~3.2K words are out-of-vocabulary this might cause some test error but it will help us to get well generalized model
+
+![Words-Distribution](/notebooks/plots/english_non_english_words_distribution_output.png)
+
+- Train : ~ 10K
+    - ~5.5K english + ~4.5K non-english
+- Validation : ~ 3.2K
+    - ~1.1K english + ~2.1K non-english
+
 ## Approach
 
 1. **Data Preprocessing:**
@@ -160,11 +175,35 @@ weighted avg       0.98      0.98      0.98       447
 To make predictions on new news articles, you can use the following function:
 
 ```python
-from model import predict_category
+from src.news_sorting_project.components.predictor import PredictionMaker
+from src.news_sorting_project.config.configuration import ConfigurationManager
+
+
+categories = {
+    'Business': '💼',
+    'Entertainment': '🎬',
+    'Politics': '🗳️',
+    'Sports': '🏅',
+    'Technology': '💻',
+}
+
+config = ConfigurationManager()
+model_predict_config = config.get_model_predict_config()
+model_clean_config = config.get_data_cleaning_config()
+model_transform_config = config.get_data_transform_config()
+make_prediction = PredictionMaker(model_predict_config,
+                                    model_clean_config, 
+                                    model_transform_config,
+                                    )
 
 article_text = "Your news article text here."
-predicted_category = predict_category(article_text)
-print(predicted_category)
+probabilities = make_prediction.predict(article_text)
+classes = list(categories.keys())
+probabilities = [prob / sum(probabilities) for prob in probabilities]  # Normalize
+predicted_class = classes[np.argmax(probabilities)]
+
+
+print(predicted_class)
 ```
 You can also run the training script to retrain the models:
 ```bash
