@@ -17,8 +17,8 @@ Welcome to the News Sorting project using Natural Language Processing (NLP) tech
 
 Clone the repository:
 ```bash
-git clone https://github.com/yourusername/bcc-news-classification.git
-cd bcc-news-classification
+git clone https://github.com/Rahul-404/bbc-news-sorting.git
+cd bbc-news-sorting
 ```
 
 Create and activate a virtual environment:
